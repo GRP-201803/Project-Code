@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Schedule</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="keywords" content="">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="./index_files/bootstrapForSchedule.css" rel="stylesheet" type="text/css">
+<link href="./index_files/style.css" rel="stylesheet" type="text/css"> 
+<link rel="stylesheet" href="./index_files/smoothbox.css" type="text/css">
+<!-- //Custom Theme files -->
+<!-- js -->
+<script src="./index_files/jquery.min.js"></script>
+<!-- //js -->
+<!-- web font -->
+<link href="./index_files/css" rel="stylesheet">
+<link href="./index_files/css(1)" rel="stylesheet" type="text/css">
+<!-- //web font -->
+	<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.8.4.css" />
+<!--	<link rel="stylesheet" type="text/css" href="example/reset.css" />-->
+	<link rel="stylesheet" type="text/css" href="jquery.ganttView.css" />
+	<link rel="stylesheet" href="css/templatemo-style.css">
+</head>
+<body class="">
+		<div class="navigation">
+				<div class="container">
+					<div class="agileits-logo">
+						<h1><a href="index.html">Group-03<span class="w3agile">Software Engineering Group Project 2018</span></a></h1>
+					</div>
+					<div class="navigation-right">
+						<span class="menu"><img src="./index_files/menu.png" alt=" "></span>
+						<nav class="link-effect-3" id="link-effect-3">
+							<ul class="nav1 nav">
+								<li><a data-hover="Home" href="index.html">Home</a></li>
+								<li class="active"><a href="schedule.html"  data-hover="SCHEDULE">SCHEDULE</a></li> 
+								<li><a href="documents.html" data-hover="DOCUMENTS">DOcuments</a></li>
+								<li class=""><a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-hover="Others">Others <span class="caret"></span></a>
+									<ul class="dropdown-menu"> 
+										<li><a data-hover="Req" href="index.html#Req" class="scroll">Req</a></li>
+										<li><a data-hover="Team" href="index.html#team" class="scroll">Team</a></li>
+									</ul>
+								</li>  
+								
+							</ul>
+						</nav>
+							<!-- script-for-menu -->
+							<script>
+							   $( "span.menu" ).click(function() {
+								 $( "ul.nav1" ).slideToggle( 300, function() {
+								 // Animation complete.
+								  });
+								 });
+							</script>
+							<!-- //script-for-menu -->
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
+	<br>
+	<div style="text-align: center; color: #E91E63;"><h2>GRP Progress</h2></div><br>
+	<div style="width: 95%; float: right;">
+		<div id="ganttChart" style="padding-bottom: 80px;"></div>
+		<div id="eventMessage"></div>
+	</div>
+
+	<div class="footer">
+        <p>Copyright &copy; 2018-2019. GRPTeam201803 All rights reserved. <a href="http://www.cssmoban.com/" target="_blank" title="模板之家"></a>- Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank"></a>
+    </div>
+
+	<script type="text/javascript" src="lib/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="lib/date.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui-1.8.4.js"></script>
+	<script type="text/javascript" src="jquery.ganttView.js"></script>
+	<script type="text/javascript" src="example/data.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$("#ganttChart").ganttView({ 
+				data: ganttData,
+				slideWidth: 900,
+				behavior: {
+					onClick: function (data) { 
+						var msg = "You clicked on an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					},
+					onResize: function (data) { 
+						var msg = "You resized an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					},
+					onDrag: function (data) { 
+						var msg = "You dragged an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+						$("#eventMessage").text(msg);
+					}
+				}
+			});
+			
+			// $("#ganttChart").ganttView("setSlideWidth", 600);
+		});
+	</script>
+</body>
+</html>
